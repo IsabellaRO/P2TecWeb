@@ -9,9 +9,12 @@
 <body>
 <h2>Registro de usuário</h2>
 <form action="efetuaRegistro" method="post" enctype="multipart/form-data">
- Login: <input type="text" name="login" /> <br/>
+ Nome: <input type="text" name="nome" /> <br/>
+ Email: <input type="text" name="email" /> <br/>
+ Username: <input type="text" name="username" /> <br/>
  Senha: <input type="password" name="senha" /> <br/>
- Foto: <input type="file" name="foto"/> <br/><br/>
+ Foto: <input type="file" name="foto_perfil"/> <br/><br/>
+ Bio: <input type="text" name="bio" /> <br/>
  <input type="submit" value="Registrar" />
 </form>
 </body>

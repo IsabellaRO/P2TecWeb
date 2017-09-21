@@ -8,8 +8,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-import mvc.model.Usuario;
-import mvc.model.UsuarioDAO;
+import mvc.model.Usuarios;
+import mvc.model.UsuariosDAO;
 
 @Controller
 public class LoginController {
@@ -19,8 +19,8 @@ public class LoginController {
 	}
 
 	 @RequestMapping(value = "efetuaRegistro", method = RequestMethod.POST)
-	 public String upload(Usuario usuario) throws IOException {
-		 UsuarioDAO dao = new UsuarioDAO();
+	 public String upload(Usuarios usuario) throws IOException {
+		 UsuariosDAO dao = new UsuariosDAO();
 		 dao.adiciona(usuario);
 		 return "redirect:loginForm";
 	 }
@@ -30,9 +30,9 @@ public class LoginController {
 	 return "formulario-login";
 	 }
 	 @RequestMapping("efetuaLogin")
-	 public String efetuaLogin(Usuario usuario, HttpSession session) {
-		 if(new UsuarioDAO().existeUsuario(usuario)) {
-			 session.setAttribute("usuarioLogado", usuario.getLogin());
+	 public String efetuaLogin(Usuarios usuario, HttpSession session) {
+		 if(new UsuariosDAO().existeUsuario(usuario)) {
+			 session.setAttribute("usuarioLogado", usuario.getUsername());
 			 return "menu";
 		 }
 		 return "redirect:loginForm";
