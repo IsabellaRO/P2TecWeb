@@ -9,7 +9,7 @@
 <body>
  <h2>Página de Login</h2>
  <form action="efetuaLogin" method="post">
- Login: <input type="text" name="login" /> <br/>
+ Username: <input type="text" name="username" /> <br/>
  Senha: <input type="password" name="senha" /> <br/>
  <input type="submit" value="Entrar nas tarefas" />
  </form>
