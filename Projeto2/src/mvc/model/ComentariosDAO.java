@@ -3,9 +3,13 @@ package mvc.model;
 import java.sql.*;
 import java.sql.Date;
 import java.util.*;
+import mvc.model.*;
 
 public class ComentariosDAO {
 	private Connection connection = null;
+	Posts post = new Posts();
+	Usuarios usuario = new Usuarios();
+	UsuariosDAO usuarios_dao = new UsuariosDAO();
 	
 	public ComentariosDAO() {
 		try {
@@ -21,8 +25,8 @@ public class ComentariosDAO {
 		 try {
 			 String sql = "INSERT INTO Rel_Comentarios" + "(post_id,user_id,comentario) values(?,?,?)";
 			 PreparedStatement stmt = connection.prepareStatement(sql);
-			 stmt.setInt(1,post.getPost_id()); //nao é assim tem que mudar conforme a DAO
-			 stmt.setInt(2,usuario.getUser_id()); //nao é assim
+			 stmt.setInt(1, post.getUser_id());
+			 stmt.setInt(2, usuario.getUser_id()); 
 			 
 			 stmt.execute();
 			 stmt.close();
@@ -37,7 +41,7 @@ public class ComentariosDAO {
 		 List<Comentarios> comentarios = new ArrayList<Comentarios>();
 		 try {
 			 PreparedStatement stmt = connection.prepareStatement("SELECT * FROM Rel_Comentarios WHERE post_id=?");
-			 stmt.setInt(1, post.getId()); //isso vem da dao de post
+			 stmt.setInt(1, post.getPost_id()); //isso vem da dao de post
 			 ResultSet rs = stmt.executeQuery();
 			 
 			 
