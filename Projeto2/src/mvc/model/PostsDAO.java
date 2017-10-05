@@ -46,11 +46,10 @@ public class PostsDAO {
 		public List<Posts> getLista() {
 			 List<Posts> posts = new ArrayList<Posts>();
 			 try {
-				 PreparedStatement stmt = connection.prepareStatement("SELECT * FROM Posts WHERE user_id=?");
+				 PreparedStatement stmt = connection.prepareStatement("SELECT * FROM Posts");
 				 ResultSet rs = stmt.executeQuery();
 				 while (rs.next()) {
 					 Posts post = new Posts();
-					 stmt.setInt(1, post.getUser_id());
 					 post.setPost_id(rs.getInt("post_id"));
 					 post.setFoto((MultipartFile) rs.getBlob("foto"));
 					 post.setVideo((MultipartFile) rs.getBlob("video"));

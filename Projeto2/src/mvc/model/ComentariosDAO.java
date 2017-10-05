@@ -62,7 +62,7 @@ public class ComentariosDAO {
 	public void removeComentario(Comentarios comentario) {
 		 try {
 			 PreparedStatement stmt = connection.prepareStatement("DELETE FROM Comentarios WHERE comentario_id=?");
-			 stmt.setInt(1, comentario.getPost_id());
+			 stmt.setInt(1, comentario.getComentario_id());
 			 stmt.execute();
 			 stmt.close();
 		 } 
@@ -70,5 +70,19 @@ public class ComentariosDAO {
 			 System.out.println(e);
 		 }
 	 }
+	
+	public void editaComentario(Comentarios comentario) {
+		 try {
+			 String sql = "UPDATE Rel_Comentarios SET comentario=? WHERE comentario_id=?";
+			 PreparedStatement stmt = connection.prepareStatement(sql);
+			 stmt.setString(1, comentario.getComentario());
+			 stmt.setLong(2, comentario.getComentario_id());
+			 stmt.executeUpdate();
+			 stmt.close();
+		 } 
+		 catch(SQLException e) {
+			 System.out.println(e);
+		 }
+	}
 }
 	
