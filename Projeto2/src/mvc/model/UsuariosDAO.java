@@ -21,7 +21,7 @@ private Connection connection = null;
 	
 	public void adiciona(Usuarios usuario) throws IOException {
 		 MultipartFile filePart = usuario.getFoto_perfil();
-		 /* Rotina para salvar o arquivo no servidor
+		 /* Rotina para salvar o arquivo no servidor 
 		 if (!filePart.isEmpty()) {
 			 String fileName = filePart.getOriginalFilename();
 			 File uploads = new File("/tmp");
@@ -88,5 +88,39 @@ private Connection connection = null;
 			}
 			return imgData;		 
 	}
+		 
+		 public void altera(Usuarios user) {
+			 try {
+				 String sql = "UPDATE Usuario SET (nome, username, senha, bio) values(?,?,?,?) WHERE user_id=?";
+				 PreparedStatement stmt = connection.prepareStatement(sql);
+				 stmt.setString(1, user.getNome());
+				 stmt.setString(3, user.getUsername());
+				 stmt.setString(4, user.getSenha());
+				 stmt.setString(6, user.getBio());
+				 stmt.setInt(8, user.getUser_id());
+				 stmt.executeUpdate();
+				 stmt.close();
+			 } 
+			 catch(SQLException e) {
+				 System.out.println(e);
+			 }
+		}
+		
+		 public void remove(Integer user_id) {
+				PreparedStatement stmt;
+				try {
+					stmt = connection.prepareStatement("DELETE FROM Usuario WHERE user_id=?");
+					stmt.setLong(1, user_id);
+					stmt.execute();
+					stmt.close();
+				
+				} catch (SQLException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+				}
+		 
+		 
+	
 
 }
