@@ -13,7 +13,7 @@ public class PostsDAO {
 		public PostsDAO(){
 			try {
 				 Class.forName("com.mysql.jdbc.Driver");
-				 connection = DriverManager.getConnection("jdbc:mysql://localhost/dado","root", "adgjlra1");
+				 connection = DriverManager.getConnection("jdbc:mysql://localhost/p2tecweb","root", "adgjlra1");
 			} 
 			catch (SQLException | ClassNotFoundException e){
 				e.printStackTrace();

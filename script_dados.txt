@@ -1,0 +1,36 @@
+USE P2TECWEB;
+
+CREATE TABLE Rel_Follow (
+user_id INT NOT NULL,
+seg_id INT NOT NULL
+);
+
+CREATE TABLE Rel_Curtidas (
+curtida_id INT NOT NULL AUTO_INCREMENT,
+post_id INT NOT NULL REFERENCES Post(post_id),
+user_id INT NOT NULL,
+PRIMARY KEY (curtida_id)
+);
+
+CREATE TABLE Rel_Comentarios (
+comentario_id INT NOT NULL AUTO_INCREMENT,
+post_id INT NOT NULL REFERENCES Post(post_id),
+user_id INT NOT NULL,
+comentario VARCHAR(100) NOT NULL,
+PRIMARY KEY (comentario_id)
+);
+
+CREATE TABLE Post (
+post_id INT NOT NULL AUTO_INCREMENT,
+foto MEDIUMBLOB,
+video LONGBLOB,
+musica MEDIUMBLOB,
+quote VARCHAR(140),
+legenda VARCHAR(100),
+data DATE,
+user_id INT NOT NULL REFERENCES Usuario(user_id),
+PRIMARY KEY (post_id)
+);
+
+INSERT INTO Post (quote, data, user_id)
+VALUES ('Ola', 20170919, 1);

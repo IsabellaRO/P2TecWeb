@@ -2,9 +2,17 @@ package mvc.model;
 
 public class Comentarios {
 	
+	private Integer comentario_id;
 	private Integer post_id;
 	private Integer user_id;
 	private String comentario;
+	
+	public Integer getComentario_id() {
+		return this.comentario_id;
+	}
+	public void setComentario_id(Integer comentario_id) {
+		this.comentario_id = comentario_id;
+	}
 	
 	public Integer getPost_id() {
 		return this.post_id;

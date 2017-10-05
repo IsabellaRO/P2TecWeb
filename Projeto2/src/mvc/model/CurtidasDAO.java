@@ -3,13 +3,13 @@ package mvc.model;
 import java.sql.*;
 import java.util.*;
 
-public class ComentariosDAO {
+public class CurtidasDAO {
 	private Connection connection = null;
 	Posts post = new Posts();
 	Usuarios usuario = new Usuarios();
 	UsuariosDAO usuarios_dao = new UsuariosDAO();
 	
-	public ComentariosDAO() {
+	public CurtidasDAO() {
 		try {
 			 Class.forName("com.mysql.jdbc.Driver");
 			 connection = DriverManager.getConnection("jdbc:mysql://localhost/p2tecweb","root", "adgjlra1");
@@ -19,9 +19,9 @@ public class ComentariosDAO {
 		}		
 	}
 	
-	public void adicionaComentario(Comentarios comentario) {
+	public void adicionaCurtida(Curtidas curtida) {
 		 try {
-			 String sql = "INSERT INTO Rel_Comentarios" + "(post_id,user_id,comentario) values(?,?,?)";
+			 String sql = "INSERT INTO Rel_Curtidas" + "(post_id,user_id) values(?,?)";
 			 PreparedStatement stmt = connection.prepareStatement(sql);
 			 stmt.setInt(1, post.getUser_id());
 			 stmt.setInt(2, usuario.getUser_id()); 
@@ -34,21 +34,20 @@ public class ComentariosDAO {
 		 }
 	}
 	
-	//Lista comentarios por id do post
-	public List<Comentarios> getLista() {
-		 List<Comentarios> comentarios = new ArrayList<Comentarios>();
+	//Lista curtidas por id do post
+	public List<Curtidas> getLista() {
+		 List<Curtidas> curtidas = new ArrayList<Curtidas>();
 		 try {
-			 PreparedStatement stmt = connection.prepareStatement("SELECT * FROM Rel_Comentarios WHERE post_id=?");
+			 PreparedStatement stmt = connection.prepareStatement("SELECT * FROM Rel_Curtidas WHERE post_id=?");
 			 stmt.setInt(1, post.getPost_id());
 			 ResultSet rs = stmt.executeQuery();
 			 
 			 
 			 while (rs.next()) {
-				 Comentarios comentario = new Comentarios();
-				 comentario.setPost_id(rs.getInt("post_id"));
-				 comentario.setComentario(rs.getString("comentario"));
-				 comentario.setUser_id(rs.getInt("user_id"));
-				 comentarios.add(comentario);
+				 Curtidas curtida = new Curtidas();
+				 curtida.setPost_id(rs.getInt("post_id"));
+				 curtida.setUser_id(rs.getInt("user_id"));
+				 curtidas.add(curtida);
 			 }
 			 rs.close();
 			 stmt.close();
@@ -56,13 +55,13 @@ public class ComentariosDAO {
 		 catch(SQLException e) {
 			 System.out.println(e);
 		 }
-	 	 return comentarios;
+	 	 return curtidas;
 	}
 	
-	public void removeComentario(Comentarios comentario) {
+	public void descurte(Curtidas curtida){
 		 try {
-			 PreparedStatement stmt = connection.prepareStatement("DELETE FROM Comentarios WHERE comentario_id=?");
-			 stmt.setInt(1, comentario.getPost_id());
+			 PreparedStatement stmt = connection.prepareStatement("DELETE FROM Curtidas WHERE curtida_id=?");
+			 stmt.setInt(1, curtida.getCurtida_id());
 			 stmt.execute();
 			 stmt.close();
 		 } 
@@ -71,4 +70,4 @@ public class ComentariosDAO {
 		 }
 	 }
 }
-	
+
