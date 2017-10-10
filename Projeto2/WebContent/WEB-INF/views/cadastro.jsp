@@ -18,44 +18,38 @@
     <div class="login-form">
     <h1>Sign Up</h1>
      <div class="form-group ">
-     PEGA FOTO
-           <center> <input type="file" name="file" id="file" class="inputFile"/>
+     <form action="efetuaRegistro" method="post">
+           <center> <input type="file" name="file" id="foto" class="inputFile"/>
     <label for="file"></label> </center>    
 </div>
      <div class="form-group ">
-     PEGA NOME
-       <input type="text" class="form-control" placeholder="Name " id="name">
+       <input type="text" class="form-control" placeholder="Name " id="nome">
        <i class="fa fa-user"></i>
      </div>
      <div class="form-group ">
-     PEGA USERNAME
-       <input type="text" class="form-control" placeholder="Username " id="UserName">
+       <input type="text" class="form-control" placeholder="Username " id="username">
        <i class="fa fa-user"></i>
      </div>
      <div class="form-group ">
-     PEGA EMAIL
        <input type="text" class="form-control" placeholder="E-mail " id="email">
        <i class="fa fa-envelope"></i>
      </div>
 
      <div class="form-group log-status">
-     PEGA SENHA
-       <input type="password" class="form-control" placeholder="Password" id="Passwod">
+       <input type="password" class="form-control" placeholder="Password" id="senha">
        <i class="fa fa-lock"></i>
      </div>
      <div class="form-group log-status">
-     CONFIRMA SENHA
-       <input type="password" class="form-control" placeholder="Confirm Password" id="Passwod2">
+       <input type="password" class="form-control" placeholder="Confirm Password" id="senha">
        <i class="fa fa-lock"></i>
      </div>
      <div class="form-group ">
-     PEGA BIO
        <input type="text" class="form-control" placeholder="Bio " id="bio">
        <i class="fa fa-user"></i>
      </div>
-     <button type="button" class="log-btn" >Confirm</button>
-     </div>
-    
+     <input type="button" class="log-btn" value="Cadastrar" >
+     
+    </form></div>
    </div>
   <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
 

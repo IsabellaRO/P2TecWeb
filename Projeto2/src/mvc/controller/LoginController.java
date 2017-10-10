@@ -15,27 +15,27 @@ import mvc.model.UsuariosDAO;
 public class LoginController {
 	@RequestMapping("registro")
 	public String registro() {
-		return "formulario-registro";
+		return "cadastro";
 	}
 
 	 @RequestMapping(value = "efetuaRegistro", method = RequestMethod.POST)
 	 public String upload(Usuarios usuario) throws IOException {
 		 UsuariosDAO dao = new UsuariosDAO();
 		 dao.adiciona(usuario);
-		 return "redirect:loginForm";
+		 return "redirect:login";
 	 }
 	 
 	 @RequestMapping("loginForm")
 	 public String loginForm() {
-	 return "formulario-login";
+	 return "login";
 	 }
 	 @RequestMapping("efetuaLogin")
 	 public String efetuaLogin(Usuarios usuario, HttpSession session) {
 		 if(new UsuariosDAO().existeUsuario(usuario)) {
 			 session.setAttribute("usuarioLogado", usuario.getUsername());
-			 return "menu";
+			 return "feed";
 		 }
-		 return "redirect:loginForm";
+		 return "redirect:login";
 	 }
 
 }
