@@ -17,40 +17,17 @@
 <body>
     <div class="login-form">
     <h1>Sign Up</h1>
-     <div class="form-group ">
-     <form action="efetuaRegistro" method="post">
-           <center> <input type="file" name="file" id="foto" class="inputFile"/>
-    <label for="file"></label> </center>    
-</div>
-     <div class="form-group ">
-       <input type="text" class="form-control" placeholder="Name " id="nome">
-       <i class="fa fa-user"></i>
-     </div>
-     <div class="form-group ">
-       <input type="text" class="form-control" placeholder="Username " id="username">
-       <i class="fa fa-user"></i>
-     </div>
-     <div class="form-group ">
-       <input type="text" class="form-control" placeholder="E-mail " id="email">
-       <i class="fa fa-envelope"></i>
-     </div>
-
-     <div class="form-group log-status">
-       <input type="password" class="form-control" placeholder="Password" id="senha">
-       <i class="fa fa-lock"></i>
-     </div>
-     <div class="form-group log-status">
-       <input type="password" class="form-control" placeholder="Confirm Password" id="senha">
-       <i class="fa fa-lock"></i>
-     </div>
-     <div class="form-group ">
-       <input type="text" class="form-control" placeholder="Bio " id="bio">
-       <i class="fa fa-user"></i>
-     </div>
-     <input type="button" class="log-btn" value="Cadastrar" >
+     <form action="efetuaRegistro" method="post" enctype="multipart/form-data">
+		<center><input type="file" name="file" id="foto" class="inputFile"/><label for="file"></label> </center> 
+		<center><input type="text" class="form-control" placeholder="Name " id="nome"><i class="fa fa-user"></i></center>
+		<center><input type="text" class="form-control" placeholder="Username " id="username"><i class="fa fa-user"></i></center>
+		<center><input type="text" class="form-control" placeholder="E-mail " id="email"><i class="fa fa-envelope"></i></center>
+		<center><input type="password" class="form-control" placeholder="Password" id="senha"><i class="fa fa-lock"></i></center>
+		<center><input type="password" class="form-control" placeholder="Confirm Password" id="senha"><i class="fa fa-lock"></i></center>
+		<center><input type="text" class="form-control" placeholder="Bio " id="bio"><i class="fa fa-user"></i></center>
+		<center><input type="submit" class="log-btn" value="Cadastrar" ></center>
      
     </form></div>
-   </div>
   <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
 
     <script  src="js/index.js"></script>

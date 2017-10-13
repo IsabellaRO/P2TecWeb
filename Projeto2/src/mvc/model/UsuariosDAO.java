@@ -32,14 +32,14 @@ private Connection connection = null;
 		}
 		 */
 		 try {
-			 String sql = "INSERT INTO usuario (nome, email, username, senha, foto_perfil, bio) values(?,?,?,?,?,?)";
+			 String sql = "INSERT INTO usuario (nome, email, username, senha, bio) values(s?,?,?,?,?)";
 			 PreparedStatement stmt = connection.prepareStatement(sql);
 			 stmt.setString(1,usuario.getNome());
 			 stmt.setString(2,usuario.getEmail());
 			 stmt.setString(3, usuario.getUsername());
 			 stmt.setString(4, usuario.getSenha());
-			 stmt.setBinaryStream(5, filePart.getInputStream());
-			 stmt.setString(6, usuario.getBio());
+			 //stmt.setBinaryStream(5, filePart.getInputStream());
+			 stmt.setString(5, usuario.getBio());
 			 //stmt.setBinaryStream(7, filePart.getInputStream());
 			 
 			 stmt.execute();
