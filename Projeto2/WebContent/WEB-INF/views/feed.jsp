@@ -61,13 +61,11 @@
               <ul class="sf-menu">
               VAI PARA O PERFIL DA PESSOA
                <a href="index.html">
-                 <img src="images/Sua_pag.png" alt=""></a>
+                 <img src="images/Sua_pag.png" alt="" height="50"></a>
                  ???????????
-               <a href="index.html">
-                 <img src="images/like.png" alt="">  </a>
                  OPTIONS DA PESSOA
-               <a href="index.html">
-                 <img src="images/options.png" alt="">   </a> 
+          	  <a href="index.html">
+          		<img src="images/logout.png" alt="" height="50">
              </ul>
             </nav>
             <div class="clear"></div>
