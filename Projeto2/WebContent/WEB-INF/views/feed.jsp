@@ -52,19 +52,16 @@
       <div class="row">
         <div class="grid_12">
         <h1>
-          <a href="index.html">
+          <a href="index.jsp">
             <img src="images/logo.png" alt="Logo alt">
           </a>
         </h1>
           <div class="navigation ">
             <nav>
               <ul class="sf-menu">
-              VAI PARA O PERFIL DA PESSOA
-               <a href="index.html">
+               <a href="index.jsp">
                  <img src="images/Sua_pag.png" alt="" height="50"></a>
-                 ???????????
-                 OPTIONS DA PESSOA
-          	  <a href="index.html">
+          	  <a href="login.jsp">
           		<img src="images/logout.png" alt="" height="50">
              </ul>
             </nav>
