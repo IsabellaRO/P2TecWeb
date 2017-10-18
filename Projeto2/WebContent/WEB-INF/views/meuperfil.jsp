@@ -80,6 +80,8 @@
   <div class="container">
     <div class="row">
       <div class="grid_12">
+		<% UsuariosDAO dao = new UsuariosDAO(); 
+		dao.trilha(${usuarioLogado}); %>
         <div class="ta__center">
         FOTO DE PERFIL DA PESSOA
                <img src="images/perfil.jpg" alt="" width=200>

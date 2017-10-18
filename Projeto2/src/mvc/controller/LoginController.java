@@ -21,6 +21,18 @@ public class LoginController {
 	 @RequestMapping(value = "efetuaRegistro", method = RequestMethod.POST)
 	 public String upload(Usuarios usuario) throws IOException {
 		 UsuariosDAO dao = new UsuariosDAO();
+		 String trilha = usuario.getTrilha();
+		 String[] tokens = trilha.split("/");
+		 Integer count = 0;
+		 String code = null;
+		 for (String t : tokens){
+			 if(t == "playlist"){
+				code = tokens[count+1];
+			 }
+			 count++;
+		 }
+		 usuario.setTrilha(code);
+		 
 		 dao.adiciona(usuario);
 		 return "redirect:login";
 	 }

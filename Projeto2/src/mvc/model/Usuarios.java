@@ -11,7 +11,7 @@ public class Usuarios {
 	private String senha;
 	private MultipartFile foto_perfil;
 	private String bio;
-	private MultipartFile trilha;
+	private String trilha;
 
 	public Integer getUser_id() {return this.user_id;}
 	public void setUser_id(Integer user_id) {this.user_id = user_id;}
@@ -34,7 +34,7 @@ public class Usuarios {
 	public String getBio() {return this.bio;}
 	public void setBio(String bio) {this.bio = bio;}
 	
-	public MultipartFile getTrilha() {return this.trilha;}
-	public void setTrilha(MultipartFile trilha) {this.trilha = trilha;}
+	public String getTrilha() {return this.trilha;}
+	public void setTrilha(String trilha) {this.trilha = trilha;}
 
 }

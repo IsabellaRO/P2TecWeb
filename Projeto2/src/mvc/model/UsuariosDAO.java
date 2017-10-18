@@ -32,7 +32,7 @@ private Connection connection = null;
 		}
 		 */
 		 try {
-			 String sql = "INSERT INTO usuario (nome, email, username, senha, bio) values(s?,?,?,?,?)";
+			 String sql = "INSERT INTO Usuario (nome, email, username, senha, bio, trilha) values(?,?,?,?,?,?)";
 			 PreparedStatement stmt = connection.prepareStatement(sql);
 			 stmt.setString(1,usuario.getNome());
 			 stmt.setString(2,usuario.getEmail());
@@ -40,6 +40,7 @@ private Connection connection = null;
 			 stmt.setString(4, usuario.getSenha());
 			 //stmt.setBinaryStream(5, filePart.getInputStream());
 			 stmt.setString(5, usuario.getBio());
+			 stmt.setString(5,  usuario.getTrilha());
 			 //stmt.setBinaryStream(7, filePart.getInputStream());
 			 
 			 stmt.execute();
@@ -54,7 +55,7 @@ private Connection connection = null;
 		 boolean existe = false;
 		 try {
 			 PreparedStatement stmt = connection.
-			 prepareStatement("SELECT COUNT(*) FROM usuario WHERE username=? AND senha=? LIMIT 1");
+			 prepareStatement("SELECT COUNT(*) FROM Usuario WHERE username=? AND senha=? LIMIT 1");
 			 stmt.setString(1, usuario.getUsername());
 			 stmt.setString(2, usuario.getSenha());
 			 ResultSet rs = stmt.executeQuery();
@@ -69,11 +70,28 @@ private Connection connection = null;
 		 }
 		 return existe;
 		 }
+	public String genTrilha(String username) {
+		 String trilha = null;
+		 try {
+			 PreparedStatement stmt = connection.
+			 prepareStatement("SELECT trilha from Usuario where username=?");
+			 stmt.setString(1, username);
+			 ResultSet rs = stmt.executeQuery();
+			 trilha = rs.getString("trilha");
+			 rs.close();
+			 stmt.close();
+		 } 
+		 catch(SQLException e) {
+			 System.out.println(e);
+		 }
+		 
+		 return "<iframe src='https://open.spotify.com/embed?uri=spotify:user:spotify:playlist:" + trilha + "&view=coverart' width='300' height='80' frameborder='0' allowtransparency='true'></iframe>";
+		 }
 
 		 public byte[] buscaFoto(String username) {
 			 byte[] imgData = null;
 			 try {
-				 PreparedStatement stmt = connection.prepareStatement("SELECT * FROM usuario WHERE username=? ");
+				 PreparedStatement stmt = connection.prepareStatement("SELECT * FROM Usuario WHERE username=? ");
 				 stmt.setString(1, username);
 				 ResultSet rs = stmt.executeQuery();
 				 if(rs.next()) {
