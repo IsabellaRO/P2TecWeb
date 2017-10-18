@@ -19,6 +19,11 @@ public class PostsController {
 		return "post";
 	}
 	
+	@RequestMapping("perfil")
+	public String perfil(){
+		return "meuperfil";
+	}
+	
 	@RequestMapping(value ="criaQuote", method = RequestMethod.POST)
 	public String criaPost(@Valid Posts post, BindingResult result) {
 		if(result.hasErrors()){

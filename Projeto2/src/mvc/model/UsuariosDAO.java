@@ -35,6 +35,7 @@ private Connection connection = null;
 			 String sql = "INSERT INTO usuario (nome, email, username, senha, bio, trilha) values(?,?,?,?,?,?)";
 			 PreparedStatement stmt = connection.prepareStatement(sql);
 			 stmt.setString(1,usuario.getNome());
+			 System.out.println(usuario.getNome());
 			 stmt.setString(2,usuario.getEmail());
 			 stmt.setString(3, usuario.getUsername());
 			 stmt.setString(4, usuario.getSenha());
