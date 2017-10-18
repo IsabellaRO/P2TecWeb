@@ -32,16 +32,16 @@ private Connection connection = null;
 		}
 		 */
 		 try {
-			 String sql = "INSERT INTO Usuario (nome, email, username, senha, bio, trilha) values(?,?,?,?,?,?)";
+			 String sql = "INSERT INTO usuario (nome, email, username, senha, bio, trilha) values(?,?,?,?,?,?)";
 			 PreparedStatement stmt = connection.prepareStatement(sql);
 			 stmt.setString(1,usuario.getNome());
 			 stmt.setString(2,usuario.getEmail());
 			 stmt.setString(3, usuario.getUsername());
 			 stmt.setString(4, usuario.getSenha());
-			 //stmt.setBinaryStream(5, filePart.getInputStream());
 			 stmt.setString(5, usuario.getBio());
 			 stmt.setString(6,  usuario.getTrilha());
 			 //stmt.setBinaryStream(7, filePart.getInputStream());
+			 System.out.println("Usuario adicionado");
 			 
 			 stmt.execute();
 			 stmt.close();
@@ -70,11 +70,10 @@ private Connection connection = null;
 		 }
 		 return existe;
 		 }
-	public String getTrilha(String username) {
-		 String trilha = null;
+	public String genTrilha(String username) {
+		 String trilha = "oi";
 		 try {
-			 PreparedStatement stmt = connection.
-			 prepareStatement("SELECT trilha from Usuario where username=?");
+			 PreparedStatement stmt = connection.prepareStatement("SELECT trilha from Usuario where username=?");
 			 stmt.setString(1, username);
 			 ResultSet rs = stmt.executeQuery();
 			 trilha = rs.getString("trilha");

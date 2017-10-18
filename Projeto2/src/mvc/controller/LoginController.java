@@ -15,23 +15,30 @@ import mvc.model.UsuariosDAO;
 public class LoginController {
 	@RequestMapping("registro")
 	public String registro() {
+		System.out.println("Redirect cadastro");
 		return "cadastro";
 	}
 
 	 @RequestMapping(value = "efetuaRegistro", method = RequestMethod.POST)
 	 public String upload(Usuarios usuario) throws IOException {
+		 System.out.println("Cadastrando....\n\n\n");
 		 UsuariosDAO dao = new UsuariosDAO();
-		 String trilha = usuario.getTrilha();
-		 String[] tokens = trilha.split("/");
-		 Integer count = 0;
-		 String code = null;
-		 for (String t : tokens){
-			 if(t == "playlist"){
-				code = tokens[count+1];
-			 }
-			 count++;
-		 }
-		 usuario.setTrilha(code);
+		 usuario.setNome(request.getParameter("nome")); 
+		 System.out.println(usuario.getNome());
+//		 String trilha = dao.genTrilha(usuario.getUsername());
+//		 System.out.println(trilha);
+//		 String[] tokens = trilha.split("/");
+//		 System.out.println(tokens);
+//		 
+//		 Integer count = 0;
+//		 String code = null;
+//		 for (String t : tokens){
+//			 if(t == "playlist"){
+//				code = tokens[count+1];
+//			 }
+//			 count++;
+//		 }
+//		 usuario.setTrilha(code);
 		 
 		 dao.adiciona(usuario);
 		 return "redirect:login";
