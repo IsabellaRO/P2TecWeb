@@ -27,7 +27,7 @@
 
     <div class="login-form">
     <h1>Share Something</h1>
-     <form action="" method="post" enctype="multipart/form-data">
+     <form action="criaQuote" method="post" enctype="multipart/form-data">
 		<center><textarea style='color:black' class="form-control" placeholder="Write here... " id="post"></textarea></center><br>
 		<center>
 		<select id="soflow">
@@ -44,7 +44,7 @@
 		</select>
 		</center><br>
 		<center><input id="font" type="text" /></center><br>
-		<center><input type="submit" class="log-btn" value="" ></center>
+		<center><input type="submit" class="log-btn" value="Postar" ></center>
      
     </form></div>
 

@@ -40,7 +40,7 @@ private Connection connection = null;
 			 stmt.setString(4, usuario.getSenha());
 			 //stmt.setBinaryStream(5, filePart.getInputStream());
 			 stmt.setString(5, usuario.getBio());
-			 stmt.setString(5,  usuario.getTrilha());
+			 stmt.setString(6,  usuario.getTrilha());
 			 //stmt.setBinaryStream(7, filePart.getInputStream());
 			 
 			 stmt.execute();
@@ -70,7 +70,7 @@ private Connection connection = null;
 		 }
 		 return existe;
 		 }
-	public String genTrilha(String username) {
+	public String getTrilha(String username) {
 		 String trilha = null;
 		 try {
 			 PreparedStatement stmt = connection.

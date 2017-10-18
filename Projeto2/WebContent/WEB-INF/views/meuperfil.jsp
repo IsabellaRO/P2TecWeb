@@ -81,11 +81,13 @@
     <div class="row">
       <div class="grid_12">
 		<% UsuariosDAO dao = new UsuariosDAO(); 
-		dao.trilha(${usuarioLogado}); %>
+		dao.getTrilha(${usuarioLogado}); %>
         <div class="ta__center">
         FOTO DE PERFIL DA PESSOA
+        <%dao.buscaFoto(${usuarioLogado});%>
                <img src="images/perfil.jpg" alt="" width=200>
          BIO DA PESSOA
+         
         <div class="bio">
  
                 At vero eos et accusamus et iusto odio dignissimos ducimus qui 
