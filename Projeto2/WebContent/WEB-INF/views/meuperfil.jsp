@@ -9,18 +9,26 @@
 <meta name="format-detection" content="telephone=no">
 <link rel="icon" href="images/favicon.ico">
 <link rel="shortcut icon" href="images/favicon.ico">
-<link rel="stylesheet" href="css/stuck.css">
-<link rel="stylesheet" href="css/style2.css">
-<link rel="stylesheet" href="css/ihover.css">
-<script src="js/jquery.js"></script>
-<script src="js/jquery-migrate-1.1.1.js"></script>
-<script src="js/script.js"></script>
-<script src="js/superfish.js"></script>
-<script src="js/jquery.equalheights.js"></script>
-<script src="js/jquery.mobilemenu.js"></script>
-<script src="js/jquery.easing.1.3.js"></script>
-<script src="js/tmStickUp.js"></script>
-<script src="js/jquery.ui.totop.js"></script>
+
+
+    <style type="text/css">
+        <%@include file="css/stuck.css"%>
+        <%@include file="css/style2.css"%>
+        <%@include file="css/ihover.css"%>
+    </style>
+
+    <script type="text/javascript">
+    	<%@include file="js/jquery.js"%>
+    	<%@include file="js/jquery-migrate-1.1.1.js"%>
+    	<%@include file="js/script.js"%>
+    	<%@include file="js/superfish.js"%>
+    	<%@include file="js/jquery.equalheights.js"%>
+    	<%@include file="js/jquery.mobilemenu.js"%>
+    	<%@include file="js/jquery.easing.1.3.js"%>
+    	<%@include file="js/tmStickUp.js"%>
+    	<%@include file="js/jquery.ui.totop.js"%>
+    </script>
+
 <script>
  $(document).ready(function(){
   $().UItoTop({ easingType: 'easeOutQuart' });
@@ -41,6 +49,7 @@
 <![endif]-->
 </head>
 <body class="page1" id="top">
+<%@ page import="java.util.*,mvc.model.*" %>
 <!--==============================
               header
 =================================-->
@@ -83,45 +92,22 @@
 		<% UsuariosDAO dao = new UsuariosDAO(); 
 		dao.getTrilha(${usuarioLogado}); %>
         <div class="ta__center">
-        FOTO DE PERFIL DA PESSOA
-        <%dao.buscaFoto(${usuarioLogado});%>
-               <img src="images/perfil.jpg" alt="" width=200>
-         BIO DA PESSOA
-         
-        <div class="bio">
- 
-                At vero eos et accusamus et iusto odio dignissimos ducimus qui 
-                blanditiis praesentium voluptatum deleniti atque corrupti quos 
-                dolores et quas molestias excepturi sint occaecati cupiditate non 
-                provident.
-            </div>
-            API SPOTIFY
+               <img src="<%dao.buscaFoto(${usuarioLogado});%>" alt="" width=200>
+        <div class="bio">       
+		<% Usuarios usuario = new Usuarios(); 
+       		usuario.getBio(${usuarioLogado}) %> 
+       </div>
           <div class="banners">        
-          FOTOS DA PESSOA
-            <a href="#" class="banner2">
+            <a href="post.jsp" class="banner2">
               <img src="images/quadradomais.jpg" alt="">
             </a>
-            <a href="#" class="banner2">
-              <img src="images/quadrado.jpg" alt="">
-            </a>
-            <a href="#" class="banner2">
-              <img src="images/quadrado.jpg" alt="">
-            </a>
-            <a href="#" class="banner2">
-              <img src="images/quadrado.jpg" alt="">
-            </a>
-            <a href="#" class="banner2">
-              <img src="images/quadrado.jpg" alt="">
-            </a>
-            <a href="#" class="banner2">
-              <img src="images/quadrado.jpg" alt="">
-            </a>
-            <a href="#" class="banner2">
-              <img src="images/quadrado.jpg" alt="">
-            </a>
-            <a href="#" class="banner2">
-              <img src="images/quadrado.jpg" alt="">
-            </a>
+                  <%PostsDAO postsdao = new PostsDAO();
+					 List<Posts> posts = postsdao.getLista();
+				 	for (Posts post : posts ) { %>
+           <p class="post"> <%post.getQuote()%>
+ </p>
+             	
+		<% } %>
           </div>
       </div>
     </div>

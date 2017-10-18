@@ -25,6 +25,17 @@ body {
     font: 300 14px/20px 'Open Sans', sans-serif;
 }
 
+p.post {
+	position: relative;
+    float: left;
+    width:251px; 
+    height:251px;
+    border:solid #000;
+    border-width:18px;
+    margin-right: 2px;
+    margin-left: 2px;
+}
+
 .ic {
 	border:0;
 	float:right;
