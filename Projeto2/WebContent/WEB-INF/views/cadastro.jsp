@@ -26,28 +26,28 @@ prefix="form" %>
     <h1>Sign Up</h1>
          <form action="efetuaRegistro" method="post" enctype="multipart/form-data">
      <div class="form-group ">
-        <input type="file" name="file" id="file" class="inputFile"/><br>
+        <input type="file" name="file" id="foto_perfil" class="inputFile"/><br>
 	</div>
      <div class="form-group ">
-       <input type="text" class="form-control" placeholder="Name " id="name"><br>
+       <input type="text" class="form-control" placeholder="Name " id="nome"><br>
      </div>
      <div class="form-group ">
-       <input type="text" class="form-control" placeholder="Username " id="UserName"><br>
+       <input type="text" class="form-control" placeholder="Username " id="username"><br>
      </div>
      <div class="form-group ">
        <input type="text" class="form-control" placeholder="E-mail " id="email"><br>
      </div>
      <div class="form-group log-status">
-       <input type="password" class="form-control" placeholder="Password" id="Passwod"><br>
+       <input type="password" class="form-control" placeholder="Password" id="password"><br>
      </div>
      <div class="form-group log-status">
-       <input type="password" class="form-control" placeholder="Confirm Password" id="Passwod2"><br>
+       <input type="password" class="form-control" placeholder="Confirm Password" id="password"><br>
      </div>
      <div class="form-group ">
        <input type="text" class="form-control" placeholder="Bio " id="bio"><br>
      </div>
      <div class="form-group ">
-     	<input type="text" class="form-control" placeholder="Link da sua playlist pública do Spotify " id="playlist"><br>
+     	<input type="text" class="form-control" placeholder="Link da sua playlist pública do Spotify " id="trilha"><br>
     </div>
      <input type="submit" class="log-btn" value="Cadastrar" >
      </form>

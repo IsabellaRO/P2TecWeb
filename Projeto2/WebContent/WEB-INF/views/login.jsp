@@ -23,11 +23,11 @@ prefix="form" %>
      <h1>Login</h1>
     <form action="efetuaLogin" method="post" enctype="multipart/form-data">   
 	     <div class="form-group ">
-	       <input type="text" class="form-control" placeholder="Username " id="UserName">
+	       <input type="text" class="form-control" placeholder="Username " id="username">
 	       <i class="fa fa-user"></i>
 	     </div>
 	     <div class="form-group log-status">
-	       <input type="password" class="form-control" placeholder="Password" id="Passwod">
+	       <input type="password" class="form-control" placeholder="Password" id="password">
 	       <i class="fa fa-lock"></i>
 	     </div>
 	      <a class="link" href="registro">Ainda não é cadastrado?</a>
